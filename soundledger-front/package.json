@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@plasmicapp/loader-react": "^1.0.395"
+  }
+}
