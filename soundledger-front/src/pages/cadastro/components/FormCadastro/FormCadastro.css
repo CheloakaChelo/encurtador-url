@@ -1,0 +1,109 @@
+.register-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f7f7f7;
+    font-family: Arial, sans-serif;
+}
+.register-header-footer {
+    width: 100%;
+    padding: 2rem 5%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-text {
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: #333;
+}
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    font-weight: bold;
+}
+.register-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    gap: 5rem;
+    padding: 2rem 5%;
+}
+.form-section {
+    max-width: 420px;
+    width: 100%;
+}
+.form-section h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+    color: #222;
+}
+.form-group {
+    margin-bottom: 1.5rem;
+}
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #1a1a1a;
+}
+.submit-button {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #000;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.submit-button:hover {
+    background-color: #333;
+}
+.login-prompt {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+.login-prompt a {
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+}
+.login-prompt a:hover {
+    text-decoration: underline;
+}
+.image-section {
+    width: 500px;
+    height: 650px;
+    background-image: url('https://placehold.co/500x650/1a1a1a/FFF?text=Est%C3%BAdio+Musical');
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+}
+/* Responsividade */
+@media (max-width: 1024px) {
+    .image-section {
+        display: none;
+    }
+    .register-content {
+        justify-content: center;
+    }
+}

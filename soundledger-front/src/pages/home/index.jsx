@@ -6,7 +6,7 @@ import {Box, Container} from "@mui/material";
 
 function Home() {
     return (
-        <Box sx={{backgroundColor: '#ffffffff',}}>
+        <Box sx={{backgroundColor: '#dbdbdb',}}>
             <Header />
             <Navbar />
             <Footer/>
