@@ -21,7 +21,7 @@ export default function Navbar() {
             </section>
 
             <section className="info-section">
-                <h2>Pensado para independentes e gigantes</h2>
+                <h2 className="textinho">Pensado para independentes e gigantes</h2>
                 <div className="info-grid">
                     <div className="info-card">
                         <div className="info-card-image-placeholder">[Imagem de um home studio]</div>
@@ -37,7 +37,7 @@ export default function Navbar() {
             </section>
 
             <section className="testimonials-section">
-                <h2>Veja as opiniões de quem usa</h2>
+                <h2 className="textinho">Veja as opiniões de quem usa</h2>
                 <div className="testimonials-grid">
                     <div className="testimonial-card">
                         <p className="quote">“Já consigo ver meus royalties imediatamente”</p>

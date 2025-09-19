@@ -66,6 +66,7 @@
     display: flex;
     justify-content: space-between;
     gap: 2rem;
+    justify-content: center;
 }
 
 .footer-branding .logo-svg {

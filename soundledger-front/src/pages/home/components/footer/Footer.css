@@ -70,6 +70,7 @@
 
 .footer-branding .logo-svg {
     margin-bottom: 1rem;
+    justify-content: center;
 }
 
 .social-links {

@@ -17,6 +17,7 @@
     font-size: 2.5rem;
     margin-bottom: 1rem;
     color: var(--primary-black);
+    padding-top: 60px;
 }
 
 .hero-section p {
@@ -41,12 +42,14 @@
 
 .features-section {
     margin-top: 4rem;
+    padding-top: 60px;
 }
 
 .features-section h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
     color: var(--primary-black);
+
 }
 
 .features-grid {
@@ -68,11 +71,16 @@
     color: var(--primary-black);
 }
 
+.info-section {
+    padding-top: 60px;
+}
+
 .info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
+
 }
 
 .info-card {
@@ -100,6 +108,7 @@
 .info-card p {
     line-height: 1.6;
     color: var(--primary-black);
+
 }
 
 .testimonials-grid {
@@ -107,6 +116,7 @@
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
+    padding-bottom: 60px;
 }
 
 .testimonial-card {
@@ -136,4 +146,9 @@
     height: 40px;
     border-radius: 50%;
     background-color: #e9e9e9;
+}
+
+.textinho {
+    color: #1a1a1a;
+    padding-top: 60px;
 }
