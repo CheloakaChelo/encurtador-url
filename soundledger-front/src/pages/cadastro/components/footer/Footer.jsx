@@ -10,31 +10,6 @@ export default function Footer() {
                             SoundLedger
                         </text>
                     </svg>
-                    <div className="social-links">
-                        <span>FB</span>
-                        <span>IN</span>
-                        <span>LI</span>
-                    </div>
-                </div>
-                <div className="footer-links">
-                    <div className="link-column">
-                        <h4>Tópico</h4>
-                        <a>Página</a>
-                        <a>Página</a>
-                        <a>Página</a>
-                    </div>
-                    <div className="link-column">
-                        <h4>Tópico</h4>
-                        <a>Página</a>
-                        <a>Página</a>
-                        <a>Página</a>
-                    </div>
-                    <div className="link-column">
-                        <h4>Tópico</h4>
-                        <a>Página</a>
-                        <a>Página</a>
-                        <a>Página</a>
-                    </div>
                 </div>
             </div>
         </footer>

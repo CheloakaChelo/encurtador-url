@@ -74,10 +74,10 @@ function FormCadastro() {
                                 <label htmlFor="role">Função</label>
                                 <select id="role" value={formData.role} onChange={handleChange} required>
                                     <option value="" disabled>Selecione</option>
-                                    <option value="artist">Artista/Intérprete</option>
-                                    <option value="composer">Compositor</option>
-                                    <option value="producer">Produtor</option>
-                                    <option value="label">Gravadora</option>
+                                    <option value="artist1">Artista/Intérprete</option>
+                                    <option value="composer1">Compositor</option>
+                                    <option value="producer1">Produtor</option>
+                                    <option value="label1">Gravadora</option>
                                 </select>
                             </div>
                             {formData.role && (
@@ -96,9 +96,9 @@ function FormCadastro() {
                                         <label htmlFor="otherRole">Alguma outra função?</label>
                                         <select id="otherRole" value={formData.otherRole} onChange={handleChange}>
                                             <option value="" disabled>Selecione</option>
-                                            <option value="artist">Artista</option>
-                                            <option value="composer">Compositor</option>
-                                            <option value="producer">Produtor</option>
+                                            {formData.role === 'artist1' ? null : <option value="artist">Artista</option>}
+                                            {formData.role === 'composer1' ? null : <option value="composer">Compositor</option>}
+                                            {formData.role === 'producer1' ? null : <option value="producer">Produtor</option>}
                                         </select>
                                     </div>
                                 </>

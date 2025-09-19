@@ -6,8 +6,8 @@ export default function Header() {
 
     const navigate = useNavigate();
 
-    const handleClickLogin = () => {
-        navigate('/login');
+    const handleClickCadastro = () => {
+        navigate('/register');
     }
 
     const handleClickHome = () => {
@@ -23,7 +23,7 @@ export default function Header() {
 
             {/* Links */}
             <nav className="nav">
-                <button className="btn-cadastro" onClick={handleClickLogin}>Login</button>
+                <button className="btn-cadastro" onClick={handleClickCadastro}>Cadastre-se</button>
             </nav>
         </header>
     );

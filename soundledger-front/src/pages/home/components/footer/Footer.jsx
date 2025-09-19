@@ -1,13 +1,25 @@
 import './Footer.css'
+import {useNavigate} from "react-router-dom";
 
 export default function Footer() {
+
+    const navigate = useNavigate();
+
+    const handleClickLogin = () => {
+        navigate('/login');
+    }
+
+    const handleClickCadastro = () => {
+        navigate('/register');
+    }
+
     return (
         <footer className="site-footer">
             <div className="footer-cta">
                 <h2>Junte-se ao SoundLedger</h2>
                 <div className="navigation-buttons">
-                    <button className="btn-register">Cadastre-se</button>
-                    <button className="btn-login">Login</button>
+                    <button className="btn-register" onClick={handleClickCadastro}>Cadastre-se</button>
+                    <button className="btn-login" onClick={handleClickLogin}>Login</button>
                 </div>
             </div>
             <div className="footer-content">
@@ -17,31 +29,6 @@ export default function Footer() {
                             SoundLedger
                         </text>
                     </svg>
-                    <div className="social-links">
-                        <span>FB</span>
-                        <span>IN</span>
-                        <span>LI</span>
-                    </div>
-                </div>
-                <div className="footer-links">
-                    <div className="link-column">
-                        <h4>Tópico</h4>
-                        <a>Página</a>
-                        <a>Página</a>
-                        <a>Página</a>
-                    </div>
-                    <div className="link-column">
-                        <h4>Tópico</h4>
-                        <a>Página</a>
-                        <a>Página</a>
-                        <a>Página</a>
-                    </div>
-                    <div className="link-column">
-                        <h4>Tópico</h4>
-                        <a>Página</a>
-                        <a>Página</a>
-                        <a>Página</a>
-                    </div>
                 </div>
             </div>
         </footer>

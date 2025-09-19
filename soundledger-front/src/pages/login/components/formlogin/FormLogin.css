@@ -1,0 +1,109 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f7f7f7;
+    font-family: Arial, sans-serif;
+}
+.login-header-footer {
+    width: 100%;
+    padding: 2rem 5%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-text {
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: #333;
+}
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    font-weight: bold;
+}
+.login-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    gap: 5rem;
+    padding: 2rem 5%;
+    background-color: #f7f7f7;
+}
+.form-section-login {
+    max-width: 420px;
+    width: 100%;
+}
+.form-section-login h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+    color: #222;
+}
+.form-group {
+    margin-bottom: 1.5rem;
+}
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+.submit-button {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #000;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+}
+.submit-button:hover {
+    background-color: #333;
+}
+.register-prompt {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+.register-prompt a {
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+}
+.register-prompt a:hover {
+    text-decoration: underline;
+}
+.image-section-login {
+    width: 500px;
+    height: 500px;
+    background-image: url('https://placehold.co/500x500/1a1a1a/FFF?text=Show+de+Rock');
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+}
+/* Responsividade */
+@media (max-width: 1024px) {
+    .image-section-login {
+        display: none;
+    }
+    .login-content {
+        justify-content: center;
+    }
+}
