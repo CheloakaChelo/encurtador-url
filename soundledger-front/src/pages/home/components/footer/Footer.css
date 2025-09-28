@@ -48,11 +48,13 @@
 .footer-cta h2 {
     margin: 0;
     color: var(--primary-black);
+    background-color: transparent;
 }
 
 .navigation-buttons{
     display: flex;
     gap: 8px;
+    background-color: transparent;
 }
 
 .btn-login{

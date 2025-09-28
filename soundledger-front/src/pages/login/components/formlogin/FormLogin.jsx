@@ -1,18 +1,44 @@
 import './FormLogin.css';
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
+import { jwtDecode } from 'jwt-decode';
+import axios from 'axios';
+import config from "../../../../Config.js";
 
 function FormLogin () {
+    localStorage.removeItem('token');
     const navigate = useNavigate()
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [senha, setSenha] = useState('');
+    const [setError] = useState('');
 
     const handleClickCadastro = () => {
       navigate('/register');
     }
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    const handleSubmit = async(e) => {
+        e.preventDefault();
+        try{
+            const response = await axios.post(config.apiUrl + '/auth/login',
+                {email, senha},
+                {headers: {'Content-Type': 'application/json'}}
+            );
+            const token = response.data.token;
+            localStorage.setItem('token', token);
+            const decodedToken = jwtDecode(token);
+            const role = decodedToken.role;
+
+            if (role.includes('ARTIST') && role.includes('COMPOSER') && role.includes('PRODUCER')){
+                navigate('/profile');
+                return;
+            }
+        }catch (erro) {
+            console.error('Login failed', erro);
+            setError('Credenciais inválidas. Tente novamente');
+            setTimeout(() => {
+                setError('');
+            }, 3000);
+        }
 
     }
 
@@ -39,8 +65,8 @@ function FormLogin () {
                                 <input
                                     type="password"
                                     id="password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
+                                    value={senha}
+                                    onChange={(e) => setSenha(e.target.value)}
                                     required
                                 />
                             </div>
@@ -51,10 +77,10 @@ function FormLogin () {
                     </p>
                 </div>
                 <div className="image-section-login">
-                    {/* [Imagem de um show com muitas luzes e confete] */}
                 </div>
             </main>
             </div>
+
         </>
     );
 }

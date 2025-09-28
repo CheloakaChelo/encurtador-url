@@ -7,16 +7,15 @@ export default function Navbar() {
                 <h1>Distribua corretamente seus royalties</h1>
                 <p>Com a SoundLedger, seus direitos autorais estão mais seguros e seus contratos são feitos de forma transparente e justa para que você tenha retorno completo das suas produções musicais.</p>
                 <div className="hero-image-placeholder">
-                    [Imagem de um estúdio de música]
                 </div>
             </section>
 
             <section className="features-section">
                 <h2>Para todos os colaboradores na produção musical</h2>
                 <div className="features-grid">
-                    <div className="feature-card">[Imagem de um artista]<h3>Artista/Intérprete</h3></div>
-                    <div className="feature-card">[Imagem de um compositor]<h3>Compositor/Produtor</h3></div>
-                    <div className="feature-card">[Imagem de um engenheiro de som]<h3>Gravadora</h3></div>
+                    <div className="feature-card"><img className='img-card' src='src/assets/cantor.jpg'/><h3>Artista/Intérprete</h3></div>
+                    <div className="feature-card"><img className='img-card' src='src/assets/produto.png'/><h3>Compositor/Produtor</h3></div>
+                    <div className="feature-card"><img className='img-card' src='src/assets/gravadora.jpg'/><h3>Gravadora</h3></div>
                 </div>
             </section>
 
@@ -24,12 +23,12 @@ export default function Navbar() {
                 <h2 className="textinho">Pensado para independentes e gigantes</h2>
                 <div className="info-grid">
                     <div className="info-card">
-                        <div className="info-card-image-placeholder">[Imagem de um home studio]</div>
+                        <div className="info-card-image-placeholder-1"></div>
                         <h3>Para aqueles artistas independentes</h3>
                         <p>Deixando de lado a necessidade de ter contrato com gravadoras para terem seus ganhos.</p>
                     </div>
                     <div className="info-card">
-                        <div className="info-card-image-placeholder">[Imagem de um estúdio profissional]</div>
+                        <div className="info-card-image-placeholder-2"></div>
                         <h3>Para aqueles artistas em contrato com gravadoras</h3>
                         <p>Potencializando ao máximo a transparência de contratos.</p>
                     </div>

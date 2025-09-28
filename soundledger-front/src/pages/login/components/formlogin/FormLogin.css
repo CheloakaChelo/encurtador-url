@@ -91,9 +91,9 @@
     text-decoration: underline;
 }
 .image-section-login {
-    width: 500px;
-    height: 500px;
-    background-image: url('https://placehold.co/500x500/1a1a1a/FFF?text=Show+de+Rock');
+    width: 508px;
+    height: 616px;
+    background-image: url('src/assets/festival-de-musica.jpg');
     background-size: cover;
     background-position: center;
     border-radius: 12px;

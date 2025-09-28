@@ -26,7 +26,6 @@ export default function Header() {
 
             {/* Links */}
             <nav className="nav">
-                <a href="#quem-somos">Quem somos?</a>
                 <a href="#login" onClick={handleClickLogin}>Login</a>
                 <button className="btn-cadastro" onClick={handleClickCadastro}>Cadastre-se</button>
             </nav>

@@ -1,0 +1,56 @@
+.profile-content-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 4rem;
+}
+
+.profile-info-section {
+    margin-bottom: 30px;
+}
+
+.profile-info-section h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #1a1a1a;
+}
+
+.profile-info-section p {
+    font-size: 18px;
+    color: #666;
+}
+
+.divider {
+    border: none;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin-bottom: 40px;
+}
+
+.music-section .music-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.music-section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.btn-view-list {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
