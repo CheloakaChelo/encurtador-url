@@ -6,7 +6,7 @@ export default function Header () {
     const navigate = useNavigate();
 
     const handleClickHome = () => {
-        navigate("/");
+        navigate("/home");
     }
 
     return(<header className="header">

@@ -11,7 +11,7 @@ export default function Header() {
     }
 
     const handleClickHome = () => {
-        navigate('/home');
+        navigate('/');
     }
 
     return(

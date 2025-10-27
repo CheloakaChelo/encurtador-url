@@ -1,0 +1,51 @@
+.dashboard-page-container {
+    max-width: 1400px; /* Largura maior para Dashboards */
+    margin: 40px auto;
+    padding: 0 40px;
+}
+
+.dashboard-page-container h1 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+}
+
+.dashboard-subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: #1a1a1a;
+    margin-bottom: 40px;
+}
+
+/* Layout Grid para Indicadores Chave */
+.key-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 4 colunas em telas grandes */
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+/* Layout Flex para Gráficos de Detalhe */
+.charts-section {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.charts-section > div {
+    flex: 1; /* Distribui o espaço igualmente entre os gráficos */
+}
+
+.recent-activity-table h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+}
+
+.recent-activity-table p {
+    text-align: center;
+    color: #1a1a1a;
+}

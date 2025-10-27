@@ -13,7 +13,7 @@ function FormLogin () {
     const [setError] = useState('');
 
     const handleClickCadastro = () => {
-      navigate('/register');
+      navigate("/register");
     }
 
     const handleSubmit = async(e) => {
@@ -28,8 +28,8 @@ function FormLogin () {
             const decodedToken = jwtDecode(token);
             const role = decodedToken.role;
 
-            if (role.includes('ARTIST') && role.includes('COMPOSER') && role.includes('PRODUCER')){
-                navigate('/profile');
+            if (role.includes('ARTIST') || role.includes('COMPOSER') || role.includes('PRODUCER')){
+                navigate("/profile");
                 return;
             }
         }catch (erro) {

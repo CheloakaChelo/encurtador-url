@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import './ProfileContent.css';
 import Card from './components/Card';
 
+import apiUrl from "../../../../Config.js";
+
 
 export default function ProfileContent() {
     const [musica, setMusicas] = useState([]);
@@ -11,7 +13,7 @@ export default function ProfileContent() {
     useEffect(() => {
         const fetchMusicas = async () => {
             try {
-                const response = await fetch('http://localhost:8080/musicas/listar');
+                const response = await fetch(apiUrl + '/musicas/listar');
 
                 if (!response.ok) {
                     throw new Error('Falha ao buscar dados do servidor');

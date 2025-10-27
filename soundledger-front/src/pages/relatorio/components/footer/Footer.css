@@ -1,0 +1,30 @@
+.login-header-footer {
+    width: 100%;
+    padding: 4rem 5%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f7f7f7;
+    justify-content: center;
+}
+.logo-text {
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.logo {
+    width: 272px;
+    height: 183px;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .image-section-login {
+        display: none;
+    }
+    .login-content {
+        justify-content: center;
+    }
+}
