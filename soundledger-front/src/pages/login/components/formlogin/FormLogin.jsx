@@ -28,9 +28,14 @@ function FormLogin () {
             const decodedToken = jwtDecode(token);
             const role = decodedToken.role;
 
-            if (role.includes('ARTIST') || role.includes('COMPOSER') || role.includes('PRODUCER')){
-                navigate("/profile");
-                return;
+            if (response.ok) {
+                if (role.includes('ARTIST') || role.includes('COMPOSER') || role.includes('PRODUCER')) {
+                    navigate("/profile");
+                    return;
+                }
+            } else {
+                const errorData = await response.json();
+                setError(errorData.message || "Falha no login")
             }
         }catch (erro) {
             console.error('Login failed', erro);
