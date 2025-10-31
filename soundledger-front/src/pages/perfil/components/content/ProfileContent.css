@@ -49,6 +49,10 @@
     cursor: pointer;
 }
 
+.nenhuma-musica{
+    color: #1a1a1a;
+}
+
 .products-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

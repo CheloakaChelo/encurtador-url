@@ -10,7 +10,7 @@ function FormLogin () {
     const navigate = useNavigate()
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
-    const [setError] = useState('');
+    const [error, setError] = useState('');
 
     const handleClickCadastro = () => {
       navigate("/register");
@@ -18,28 +18,34 @@ function FormLogin () {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
+        setError('');
+
         try{
             const response = await axios.post(config.apiUrl + '/auth/login',
                 {email, senha},
                 {headers: {'Content-Type': 'application/json'}}
             );
+
             const token = response.data.token;
             localStorage.setItem('token', token);
             const decodedToken = jwtDecode(token);
             const role = decodedToken.role;
 
-            if (response.ok) {
-                if (role.includes('ARTIST') || role.includes('COMPOSER') || role.includes('PRODUCER')) {
+
+            if (role.includes('ARTIST') || role.includes('COMPOSER') || role.includes('PRODUCER')) {
                     navigate("/profile");
                     return;
-                }
-            } else {
-                const errorData = await response.json();
-                setError(errorData.message || "Falha no login")
             }
+
         }catch (erro) {
             console.error('Login failed', erro);
-            setError('Credenciais inválidas. Tente novamente');
+
+            if (erro.response && erro.response.data && erro.response.data.message) {
+                setError(erro.response.data.message);
+            } else {
+                setError('Credenciais inválidas. Tente novamente');
+            }
+
             setTimeout(() => {
                 setError('');
             }, 3000);
@@ -53,6 +59,13 @@ function FormLogin () {
             <main className="login-content">
                 <div className="form-section-login">
                     <h1>Login</h1>
+
+                    {error && (
+                        <div className="form-error-message">
+                            {error}
+                        </div>
+                    )}
+
                         <form onSubmit={handleSubmit}>
                             <div className="form-group">
                                 <label htmlFor="email">Endereço de e-mail</label>

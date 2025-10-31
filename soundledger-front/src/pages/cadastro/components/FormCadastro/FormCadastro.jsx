@@ -74,7 +74,6 @@ function FormCadastro() {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    // A função handleChange está correta
     const handleChange = (e) => {
         const { id, value } = e.target;
         setFormData(prevState => ({
@@ -83,7 +82,6 @@ function FormCadastro() {
         }));
     };
 
-    // O handleSubmit está correto
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
@@ -92,18 +90,16 @@ function FormCadastro() {
         console.log('Dados que serão enviados para a API:', apiData);
 
         try {
-            // Enviando 'apiData' (correto)
             const response = await axios.post(config.apiUrl + "/user/cadastrar", apiData);
 
             if (response.status === 201){
                 console.log('Cadastro realizado:', response.data);
-                navigate('/login'); // Redireciona para o login
+                navigate('/login');
             }
 
         } catch (e) {
             console.error("Erro no cadastro: ", e);
             if (e.response) {
-                // Tenta pegar a mensagem de erro específica do backend
                 setError(e.response.data.message || e.response.data.error || 'Erro: Verifique seus dados.');
             } else if (e.request) {
                 setError('Erro de rede: O servidor não respondeu.');
@@ -153,8 +149,6 @@ function FormCadastro() {
                                 </select>
                             </div>
 
-                            {/* --- CAMPOS CONDICIONAIS CORRIGIDOS --- */}
-
                             {/* Nome Artístico/Gravadora (Aparece para Artista, Compositor ou Gravadora) */}
                             {(formData.role === 'artist1' || formData.role === 'composer1' || formData.role === 'label1' || formData.otherRole === 'artist' || formData.otherRole === 'composer') && (
                                 <div className="form-group">
@@ -164,7 +158,7 @@ function FormCadastro() {
                                         placeholder={formData.role === 'label1' ? 'Ex: Sua Gravadora' : 'Ex: Smitherton'}
                                         value={formData.artistName}
                                         onChange={handleChange}
-                                        required // Nome artístico é provavelmente obrigatório
+                                        required
                                     />
                                 </div>
                             )}
@@ -178,7 +172,7 @@ function FormCadastro() {
                                         placeholder="Ex: Boombap, Rap"
                                         value={formData.generoMusical}
                                         onChange={handleChange}
-                                        required // Gênero é provavelmente obrigatório
+                                        required
                                     />
                                 </div>
                             )}

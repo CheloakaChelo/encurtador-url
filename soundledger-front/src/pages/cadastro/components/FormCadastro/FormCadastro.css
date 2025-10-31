@@ -98,6 +98,11 @@
     background-position: center;
     border-radius: 12px;
 }
+
+.form-error-message {
+    color: #f20a0a;
+}
+
 /* Responsividade */
 @media (max-width: 1024px) {
     .image-section {

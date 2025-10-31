@@ -5,6 +5,7 @@ import Login from './pages/login/Login.jsx';
 import Perfil from './pages/perfil/Perfil.jsx';
 import BuscarMusica from "./pages/buscarmusica/Buscar.jsx";
 import Relatorio from "./pages/relatorio/Relatorio.jsx";
+import CadastroMusica from "./pages/cadastromusica/CadastroMusica.jsx";
 
 export default function App() {
     return(
@@ -16,6 +17,7 @@ export default function App() {
                 <Route path="/profile" element={<Perfil />} />
                 <Route path="/search" element={<BuscarMusica />} />
                 <Route path="/rel" element={<Relatorio />}/>
+                <Route path="/cadastromusica" element={<CadastroMusica />}/>
             </Routes>
         </BrowserRouter>
     );

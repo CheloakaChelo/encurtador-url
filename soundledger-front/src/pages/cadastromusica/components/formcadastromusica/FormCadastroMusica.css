@@ -1,0 +1,66 @@
+
+.participant-form {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.participant-form h4 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.btn-remove {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.btn-remove:hover {
+    background: #d32f2f;
+}
+
+.btn-add {
+    width: 100%;
+    padding: 12px;
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px dashed #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-bottom: 24px;
+}
+
+.image-section {
+    width: 500px;
+    height: 650px;
+    background-image: url('src/assets/studio.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+}
+
+.detentores {
+    color: #1a1a1a;
+}
+
+.participant-form {
+    color: #1a1a1a;
+
+}
+
+.btn-add:hover {
+    background-color: #e0e0e0;
+}
