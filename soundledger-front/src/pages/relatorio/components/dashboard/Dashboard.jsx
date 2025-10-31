@@ -1,34 +1,105 @@
 import React, { useState, useEffect } from 'react';
 import './Dashboard.css';
 import ReportCard from './components/reportcard/ReportCard.jsx';
-import {fetchData} from "../../../../service/api.js";
+import {fetchData, fetchEthBrlRate} from "../../../../service/api.js";
 
-// Importe mais componentes de relatórios específicos
 
-// Dados simulados
-const mockReports = [
-    { id: 1, title: 'Total de Royalties Arrecadados', value: 'R$ 15.450,00', trend: '+12% (Últimos 30 dias)', type: 'summary' },
-    { id: 2, title: 'Músicas Registradas', value: '452', trend: '+5 Novas', type: 'summary' },
-    { id: 4, title: 'Visualizações Totais', value: '2.3M', trend: '', type: 'summary' },
-];
+function formatoToBRL(value) {
+    return new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    }).format(value);
+}
+
+function formatNumber(value) {
+    if(value >= 1000000) {
+        return (value / 1000000).toFixed(1) + 'M';
+    }
+    if (value >= 10000) {
+        return (value / 10000).toFixed(1) + 'k';
+    }
+    return value.toString();
+}
 
 export default function Dashboard() {
-    // Estado para armazenar os dados reais, obtidos de uma API
-    const [reportsData, setReportsData] = useState(mockReports);
+
+    const [summaryData, setSummaryData] = useState([]);
+    const [musicas, setMusicas] = useState([]);
+
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        // Aqui você faria a chamada à API para buscar os dados
-        fetchData().then(data => setReportsData(data));
+        const loadDashboard = async () => {
+            try {
+                const [musicasData, ethRate] = await Promise.all([
+                    fetchData(),
+                    fetchEthBrlRate()
+                ]);
+
+                setMusicas(musicasData);
+
+                const totalMusicas = musicasData.length;
+
+                const totalPlays = musicasData.reduce((sum, musicas) => {
+                    return sum + (musicas.totalPlaysDaMusica || 0);
+                }, 0);
+
+                const totalEth = musicasData.reduce((sum, musicas) => {
+                    return sum + parseFloat(musicas.saldoDoUsuarioEth || 0);
+                }, 0);
+
+                const totalBRL = totalEth * ethRate;
+
+                const newSummaryData = [
+                    {
+                        id: 1,
+                        title: 'Total de Royalties (BRL)',
+                        value: formatoToBRL(totalBRL),
+                        trend: totalEth.toFixed(4) + ' ETH'
+                    },
+                    {
+                        id: 2,
+                        title: 'Musicas Registradas',
+                        value: totalMusicas.toString(),
+                        trend: ''
+                    },
+                    {
+                        id: 4,
+                        title: 'Visualizações Totais',
+                        value: formatNumber(totalPlays),
+                        trend: ''
+                    }
+                ];
+
+                setSummaryData(newSummaryData);
+
+            } catch (err) {
+                console.error("Erro ao carregar o dashboard:" , err);
+                setError("Falha ao carregar os dados. Tente novamente");
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        loadDashboard();
      }, []);
+
+    if (loading) {
+        return <p>Carregando dashboard...</p>;
+    }
+
+    if (error) {
+        return <p>Erro: {error}</p>;
+    }
 
     return (
         <div className="dashboard-page-container">
             <h1>Registros Musicais</h1>
             <p className="dashboard-subtitle">Visão geral do desempenho e royalties.</p>
 
-            {/* Seção 1: Indicadores Chave (Layout Grid) */}
             <section className="key-metrics-grid">
-                {reportsData.map(report => (
+                {summaryData.map(report => (
                     <ReportCard
                         key={report.id}
                         title={report.title}
@@ -39,12 +110,32 @@ export default function Dashboard() {
                 ))}
             </section>
 
-            {/* Seção 3: Tabela de Últimos Registros (Componente separado) */}
             <section className="recent-activity-table">
-                <h2>Atividade Recente</h2>
-                {/* Aqui você renderizaria um componente de tabela */}
-                {/* <RecentRegistrationsTable /> */}
-                <p>Tabela de músicas recém-registradas...</p>
+                <h2>Suas Músicas</h2>
+                {musicas.length > 0 ? (
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Artista Principal</th>
+                            <th>Total de Plays</th>
+                            <th>Seu Saldo (ETH)</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {musicas.map(musica => (
+                            <tr key={musica.musicaId}>
+                                <td>{musica.titulo}</td>
+                                <td>{musica.artistaPrincipalNome}</td>
+                                <td>{musica.totalPlaysDaMusica}</td>
+                                <td>{parseFloat(musica.saldoDoUsuarioEth).toFixed(6)} ETH</td>
+                            </tr>
+                        ))}
+                        </tbody>
+                    </table>
+                ) : (
+                    <p>Nenhuma música registrada ainda.</p>
+                )}
             </section>
         </div>
     );

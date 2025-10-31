@@ -6,7 +6,11 @@ export default function Header () {
     const navigate = useNavigate();
 
     const handleClickHome = () => {
-        navigate("/home");
+        navigate("/");
+    }
+
+    const handleClickVoltar = () => {
+        navigate("/profile")
     }
 
     return(<header className="header">
@@ -15,8 +19,7 @@ export default function Header () {
         </div>
 
         <nav className="nav">
-            <a >Cadastrar Música</a>
-            <a >Meus Registros</a>
+            <a onClick={handleClickVoltar}>Voltar</a>
             <button className="btn-logout" onClick={handleClickHome}>Logout</button>
         </nav>
     </header>);

@@ -9,14 +9,17 @@ export default function Header () {
         navigate("/");
     }
 
+    const handleClickFormCadastroMusica = () => {
+        navigate('/cadastromusica');
+    }
+
     return(<header className="header">
         <div className="logo">
             <img src="src/assets/logo.png" alt="Logo" className="logo-img" onClick={handleClickHome}/>
         </div>
 
         <nav className="nav">
-            <a >Cadastrar Música</a>
-            <a >Meus Registros</a>
+            <a onClick={handleClickFormCadastroMusica}>Cadastrar Música</a>
             <button className="btn-logout" onClick={handleClickHome}>Logout</button>
         </nav>
     </header>);

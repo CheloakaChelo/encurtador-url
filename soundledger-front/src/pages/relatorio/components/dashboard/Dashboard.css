@@ -49,3 +49,58 @@
     text-align: center;
     color: #1a1a1a;
 }
+
+.recent-activity-table {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    margin-top: 40px; /* Espaçamento dos cards de cima */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+}
+
+/* 2. Estiliza o título "Suas Músicas" */
+.recent-activity-table h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center; /* Centraliza o título */
+}
+
+/* 3. Estilização da tabela */
+.recent-activity-table table {
+    width: 100%;
+    border-collapse: collapse; /* Remove bordas duplas */
+    font-size: 14px;
+}
+
+/* 4. Estilização do cabeçalho da tabela (Título, Artista, etc.) */
+.recent-activity-table th {
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 2px solid #f0f0f0; /* Linha divisória mais grossa */
+    font-weight: 600;
+    color: #666;
+    background-color: #fcfcfc;
+}
+
+/* 5. Estilização das células de dados (linhas da tabela) */
+.recent-activity-table td {
+    padding: 16px;
+    border-bottom: 1px solid #f5f5f5; /* Linha divisória sutil */
+    color: #333;
+}
+
+/* 6. Efeito "hover" para as linhas */
+.recent-activity-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* 7. Mensagem de "Nenhuma música" */
+.recent-activity-table p {
+    text-align: center;
+    padding: 20px;
+    color: #888;
+    font-style: italic;
+}
