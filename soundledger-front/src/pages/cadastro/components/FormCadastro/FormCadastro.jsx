@@ -10,6 +10,7 @@ const buildApiPayload = (formData) => {
         nome: formData.name,
         email: formData.email,
         senha: formData.password,
+        enderecoCarteira: formData.walletAddress,
         roles: [],
         perfilArtista: null,
         perfilProdutor: null,
@@ -64,6 +65,7 @@ function FormCadastro() {
         email: '',
         senha: '',
         role: '',
+        walletAddress: '',
         artistName: '',
         otherRole: '',
         generoMusical: '',
@@ -135,6 +137,10 @@ function FormCadastro() {
                             <div className="form-group">
                                 <label htmlFor="password">Senha</label>
                                 <input type="password" id="password" placeholder="Senha" value={formData.password} onChange={handleChange} required />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="walletAddress">Endereço de Carteira</label>
+                                <input type="walletAddress" id="walletAddress" placeholder="Endereço de Carteira" value={formData.walletAddress} onChange={handleChange} required />
                             </div>
 
                             {/* Campo de Função Principal */}
