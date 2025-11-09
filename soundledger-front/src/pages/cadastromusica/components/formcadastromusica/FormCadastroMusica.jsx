@@ -104,7 +104,7 @@ function FormCadastroMusica() {
                 }
             });
 
-            if (response.status === 201) {
+            if (response.status === 200) {
                 alert('Música cadastrada com sucesso!');
                 navigate('/profile');
             }

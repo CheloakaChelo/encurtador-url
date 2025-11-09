@@ -32,7 +32,7 @@ function FormLogin () {
             const role = decodedToken.role;
 
 
-            if (role.includes('ARTIST') || role.includes('COMPOSER') || role.includes('PRODUCER')) {
+            if (role.includes('ARTISTA') || role.includes('COMPOSITOR') || role.includes('PRODUTOR')) {
                     navigate("/profile");
                     return;
             }
