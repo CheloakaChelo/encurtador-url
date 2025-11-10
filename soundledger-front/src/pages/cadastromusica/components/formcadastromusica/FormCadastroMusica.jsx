@@ -22,6 +22,8 @@ function FormCadastroMusica() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
 
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
     useEffect(() => {
         const fetchUsers = async () => {
             try {
@@ -88,6 +90,8 @@ function FormCadastroMusica() {
         e.preventDefault();
         setError('');
 
+        setIsSubmitting(true);
+
         const payloadFinal = {
             ...musicaData,
             detentoresDireitos: detentores
@@ -110,6 +114,8 @@ function FormCadastroMusica() {
             }
         } catch (err) {
             setError(err.response?.data?.message || 'Erro ao cadastrar a música.');
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -220,8 +226,8 @@ function FormCadastroMusica() {
                             Adicionar Participante
                         </button>
 
-                        <button type="submit" className="submit-button">
-                            Cadastrar Música
+                        <button type="submit" className="submit-button" disabled={isSubmitting}>
+                            {isSubmitting ? 'Cadastrando...' : 'Cadastrar Música'}
                         </button>
                     </form>
                 </div>
